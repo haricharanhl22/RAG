@@ -97,20 +97,3 @@ rag_agent/
 ├── evals/               # Eval datasets and results
 └── .env.example         # API key template
 ```
-
-## Key concepts to know for interviews
-
-**Why HyDE?** A user question is short and sparse. A hypothetical answer is long
-and dense — it matches the style of actual document chunks. Embedding the
-hypothetical answer gives much better retrieval signal.
-
-**Why reranking?** Cosine similarity is a blunt tool — it measures vector
-proximity. A cross-encoder reranker reads both the query AND the chunk together,
-giving a much more accurate relevance score. The cost: a bit slower. The gain:
-significantly better answers.
-
-**What RAGAS measures:**
-- `faithfulness` — does the answer only use what the retrieved chunks say?
-- `answer_relevancy` — does the answer actually address the question asked?
-- `context_precision` — are the chunks retrieved actually useful for the answer?
-- `context_recall` — were all the chunks needed to answer found?
